@@ -1,0 +1,7 @@
+pip install bs4  4.11.2
+pip install django 4.1.7
+pip install psycopg2 2.9.5
+pip install pyTelegramBotAPI 4.10.0
+pip install schedule 1.1.0
+
+NEW_RELIC_CONFIG_FILE=newrelic.ini newrelic-admin run-program python3 flats/manage.py runserver

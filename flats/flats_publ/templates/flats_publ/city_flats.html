@@ -1,0 +1,40 @@
+
+{% extends 'flats_publ/base.html' %}
+{% load poll_extras %}
+
+
+{% block price %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    
+    <div class="row row-cols-1  text-center"> 
+        
+        
+        {% for f in flats %}
+        <div class="col">
+            <div class="card ">
+                <div class="card-header py-2">
+                  <h4 class="my-0 fw-normal">{{f.title}}</h4>
+                </div>
+                <div class="card-body">
+                    {% with f.photo_links|split:"," as  urls_img %}
+                        {% for url_img in urls_img %}
+                        
+                        <img src={{url_img}} class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" width = "300" height = '300' alt=""> 
+
+                        {% endfor %}
+                    {% endwith %}
+                    <h1 class="card-title pricing-card-title">{{f.price}}<small class="text-muted fw-light">/BYN</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>{{f.description}}</li>                       
+                    </ul>
+            <a href={{f.link}} type="button" class="w-100 btn btn-lg btn-outline-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock price %}
